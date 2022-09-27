@@ -14,9 +14,8 @@ model Teacher {
   id Int @id @default(autoincrement())
   username String @db.VarChar(255) 
   password String @db.VarChar(255) 
-  firstName String @db.VarChar(255) @map("first_name")
-  lastName String @db.VarChar(255) @map("last_name")
   suffix String @db.VarChar(255)
+  name String @db.VarChar(255) 
   gradeTaught String @db.VarChar(255) @map("grade_taught")
   students Student[]
 }
