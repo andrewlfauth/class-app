@@ -1,9 +1,5 @@
-import { useRouter } from 'next/router'
-
-function Index() {
-  const router = useRouter()
-  const { id } = router.query
-  return <div>id: {id}</div>
+function Index(props) {
+  return <div>id: {props.classroom}</div>
 }
 
 export default Index
