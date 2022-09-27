@@ -18,4 +18,12 @@ model Teacher {
   lastName String @db.VarChar(255) @map("last_name")
   suffix String @db.VarChar(255)
   gradeTaught String @db.VarChar(255) @map("grade_taught")
+  students Student[]
+}
+
+model Student {
+  id Int @id @default(autoincrement())
+  teacherId Int @unique // relationship scalar field
+  teacher Teacher @relation(fields: [teacherId], references: [id])
+  gradeLevel String @db.VarChar(255) @map("grade_level")
 }
