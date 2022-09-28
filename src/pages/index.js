@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-
-import getFormData from '../utils/getFormData'
-import CreateTeacher from '../components/CreateTeacher'
+import Link from 'next/link'
 
 export default function Home() {
   const router = useRouter()
@@ -29,12 +27,24 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main>
-        <h1 className='text-6xl font-bold'>
-          Managing your class just became easy
+      <main className='flex flex-col items-center'>
+        <h1 className='text-4xl md:text-6xl max-w-3xl mx-auto font-bold text-center tracking-tight'>
+          Managing your classroom just became easy
         </h1>
+
+        <div className='mt-10 flex space-x-4'>
+          <Link href='register'>
+            <a className='bg-purple-500 text-gray-100 rounded py-4 text-xl font-semibold w-44 text-center block'>
+              Get Started
+            </a>
+          </Link>
+          <Link href='login'>
+            <a className='bg-gray-200 text-gray-600 rounded py-4 text-xl font-semibold w-44 text-center block'>
+              Login
+            </a>
+          </Link>
+        </div>
       </main>
-      {/* <CreateTeacher handleSubmit={handleSubmit} /> */}
     </div>
   )
 }
