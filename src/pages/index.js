@@ -29,6 +29,11 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
+      <main>
+        <h1 className='text-6xl font-bold'>
+          Managing your class just became easy
+        </h1>
+      </main>
       {/* <CreateTeacher handleSubmit={handleSubmit} /> */}
     </div>
   )
