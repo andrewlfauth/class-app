@@ -5,8 +5,11 @@ export default async function handler(req, res) {
     return null
   }
 
-  const body = req.body
+  const body = JSON.parse(req.body)
+
   await prisma.teacher.create({
     data: body,
   })
+
+  res.status(200)
 }
