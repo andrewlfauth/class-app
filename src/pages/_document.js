@@ -10,6 +10,7 @@ export default function Document() {
           href='https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap'
           rel='stylesheet'
         />
+        <link rel='icon' href='/favicon.png' />
       </Head>
       <body className='font-lato'>
         <Main />
