@@ -7,16 +7,16 @@ import CreateTeacher from '../components/CreateTeacher'
 export default function Home() {
   const router = useRouter()
 
-  async function handleSubmit(e) {
-    const data = getFormData(e)
-    await fetch('/api/create-teacher', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-  }
+  // async function handleSubmit(e) {
+  //   const data = getFormData(e)
+  //   await fetch('/api/create-teacher', {
+  //     method: 'POST',
+  //     body: JSON.stringify(data),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  // }
 
   return (
     <div>
@@ -29,7 +29,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <CreateTeacher handleSubmit={handleSubmit} />
+      {/* <CreateTeacher handleSubmit={handleSubmit} /> */}
     </div>
   )
 }
