@@ -10,7 +10,7 @@ function CreateTeacher({ handleSubmit }) {
             <div className='w-full px-3 sm:w-1/2'>
               <div className='mb-5'>
                 <label
-                  for='username'
+                  htmlFor='username'
                   className='mb-3 block text-base font-medium text-[#07074D]'
                 >
                   Choose a username
@@ -26,7 +26,7 @@ function CreateTeacher({ handleSubmit }) {
             <div className='w-full px-3 sm:w-1/2'>
               <div className='mb-5'>
                 <label
-                  for='password'
+                  htmlFor='password'
                   className='mb-3 block text-base font-medium text-[#07074D]'
                 >
                   Set your password
@@ -45,7 +45,7 @@ function CreateTeacher({ handleSubmit }) {
             <div className='w-full px-3 sm:w-1/2'>
               <div className='mb-5'>
                 <label
-                  for='gradeTaugth'
+                  htmlFor='gradeTaugth'
                   className='mb-3 block text-base font-medium text-[#07074D]'
                 >
                   Which grade do you teach?
