@@ -5,7 +5,8 @@ export default function getFormData(e) {
   let inputs = [...form.elements]
   let valuesArr = inputs.map((i) => {
     let name = i.name
-    return { [name]: i.value }
+
+    return name ? { [name]: i.value } : null
   })
 
   return Object.assign({}, ...valuesArr)
