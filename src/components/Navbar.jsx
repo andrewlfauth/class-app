@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 function Navbar() {
   const { data: session } = useSession()
+
   return (
     <div className='bg-purple-500'>
       <nav className='px-4 flex justify-between items-center sm:px-6 lg:px-8 mx-auto max-w-7xl py-2'>
@@ -22,7 +23,12 @@ function Navbar() {
           <div className='flex items-center'>
             <button
               className='text-white rounded py-1 w-24 mr-4 font-semibold bg-purple-900'
-              onClick={() => signOut()}
+              onClick={() =>
+                signOut({
+                  redirect: true,
+                  callbackUrl: '/',
+                })
+              }
             >
               Sign out
             </button>
@@ -35,19 +41,17 @@ function Navbar() {
             />
           </div>
         ) : (
-          <button onClick={() => signIn()}>Sign in</button>
+          <button
+            onClick={() =>
+              signIn('google', {
+                redirect: true,
+                callbackUrl: '/dashboard',
+              })
+            }
+          >
+            Sign in
+          </button>
         )}
-        {/* {session && (
-          <div>
-            <Image
-              className='rounded-full'
-              src={session?.user.image}
-              width={30}
-              height={30}
-              alt='profile'
-            />
-          </div>
-        )} */}
       </nav>
     </div>
   )
