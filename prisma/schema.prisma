@@ -42,8 +42,6 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  role String
-  gradeLevel String @map("grade_level")
 }
 
 model VerificationToken {
