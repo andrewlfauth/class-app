@@ -1,11 +1,11 @@
-import { PrismaClient } from '@prisma/client'
 import { getSession } from 'next-auth/react'
+
+import prisma from '../../prismadb'
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     return null
   }
-  const prisma = new PrismaClient()
   const session = await getSession({ req })
 
   const body = JSON.parse(req.body)

@@ -8,8 +8,10 @@ import getFormData from '../utils/getFormData'
 function CreateClassroom() {
   const router = useRouter()
   const [showForm, setShowForm] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const createClassroom = async (e) => {
+    setIsLoading(true)
     const formData = getFormData(e)
 
     const res = await fetch('/api/create-classroom', {
@@ -19,7 +21,8 @@ function CreateClassroom() {
 
     const status = await res.json()
     console.log(status)
-
+    setIsLoading(false)
+    setShowForm(false)
     router.replace('/dashboard')
   }
 
@@ -27,16 +30,16 @@ function CreateClassroom() {
     <div>
       <button
         onClick={() => setShowForm(true)}
-        className='pt-6 w-40 pl-2 pb-2 rounded bg-purple-500 relative text-2xl text-left tracking-tight font-semibold text-gray-100 group hover:bg-opacity-95'
+        className='relative w-40 pt-6 pb-2 pl-2 text-2xl font-semibold tracking-tight text-left text-gray-100 bg-purple-500 rounded group hover:bg-opacity-95'
       >
-        <IoCreate className='text-4xl absolute top-2 right-2 text-gray-100 group-hover:text-emerald-200' />
+        <IoCreate className='absolute text-4xl text-gray-100 top-2 right-2 group-hover:text-emerald-200' />
         Create <br /> Classroom
       </button>
 
       {showForm && (
         <form
           onSubmit={createClassroom}
-          className='bg-gray-100 fixed top-28 left-52 mx-auto p-10 rounded w-fit'
+          className='fixed p-10 mx-auto bg-gray-100 rounded top-28 left-52 w-fit'
         >
           <AiOutlineClose
             onClick={() => setShowForm(false)}
@@ -45,20 +48,20 @@ function CreateClassroom() {
           <div className='flex flex-col'>
             <label
               htmlFor='name'
-              className='text-purple-900 font-semibold mb-1'
+              className='mb-1 font-semibold text-purple-900'
             >
               Name your classroom
             </label>
-            <input type='text' name='name' className='p-2 rounded border' />
+            <input type='text' name='name' className='p-2 border rounded' />
           </div>
           <div className='flex flex-col mt-2'>
             <label
               htmlFor='grade'
-              className='text-purple-900 font-semibold mb-1'
+              className='mb-1 font-semibold text-purple-900'
             >
               Grade Level
             </label>
-            <select name='grade' className='p-2 rounded border'>
+            <select name='grade' className='p-2 border rounded'>
               <option value='Kindergarten'>Kindergarten</option>
               <option value='1st Grade'>1st Grade</option>
               <option value='2nd Grade'>2nd Grade</option>
@@ -68,8 +71,8 @@ function CreateClassroom() {
               <option value='6th Grade'>6th Grade</option>
             </select>
           </div>
-          <button className='bg-emerald-300 rounded py-2 w-full mx-auto block mt-6'>
-            Create
+          <button className='block w-full py-2 mx-auto mt-6 rounded bg-emerald-300'>
+            {isLoading ? 'Creating' : 'Create'}
           </button>
         </form>
       )}
